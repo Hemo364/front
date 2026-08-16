@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Shabnam";
+  src: url("src/assets/Font/shabnam-font-v5.0.1/Shabnam.ttf");
+}
+*{
+  direction: rtl;
+  text-align: right;
+  font-family: "Shabnam";
+}
+@theme{
+  --spacing-app-sidebar-w:256px;
+  --spacing-app-header-h:64px;
+}
+
+@layer components {
+  .btn-style {
+    @apply bg-amber-400 rounded-md p-2 m-2 hover:bg-amber-500 transition-all duration-300 text-white;
+  }
+}
