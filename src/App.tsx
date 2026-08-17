@@ -1,17 +1,18 @@
-import { useState } from 'react'
 import Content from './layout/Content/Content'
 import Header from './layout/Header/Header'
 import Sidebar from './layout/Sidebar/Sidebar'
+import { useAppSelector } from './redux/reduxHooks'
 function App() {
-
-  const [sideBarShow,SetSideBarShow]=useState(false)
+  const {theme}=useAppSelector(state=>state.uiManagerReducer)
+  const {sideBarShow}=useAppSelector(state=>state.uiManagerReducer)
   return (
-    <>
-    <Content className='fixed h-screen w-full pt-16 md:pr-app-sidebar-w bg-green-400'/>
-    <Header SideBarShow={sideBarShow} SetSideBarShow={SetSideBarShow} className='fixed top-0 h-app-header-h w-full bg-blue-300 md:pr-app-sidebar-w'/>
-    <Sidebar SideBarShow={sideBarShow} SetSideBarShow={SetSideBarShow} className={`fixed top-0 bg-pink-300 w-app-sidebar-w h-screen transition-all duration-300 ease-in-out ${sideBarShow ? "right-0" : "-right-app-sidebar-w"} lg:right-0`}/>
-    
-    </>
+    <main className={theme}>
+      <div className='dark:text-gray-300'>
+    <Content className='fixed h-screen w-full pt-16 bg-gray-300 md:pr-app-sidebar-w  dark:bg-gray-600'/>
+    <Header className='fixed flex flex-row top-0 h-app-header-h w-full dark:bg-gray-800 md:pr-app-sidebar-w shadow-lg bg-white'/>
+    <Sidebar className={`fixed  top-0 dark:bg-gray-700 w-app-sidebar-w bg-white h-screen transition-all duration-300 ease-in-out border-l border-gray-300 ${sideBarShow ? "right-0" : "-right-app-sidebar-w"} lg:right-0`}/>
+      </div>
+    </main>
   )
 }
 

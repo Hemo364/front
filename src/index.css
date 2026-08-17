@@ -16,6 +16,8 @@
 
 @layer components {
   .btn-style {
-    @apply bg-amber-400 rounded-md p-2 m-2 hover:bg-amber-500 transition-all duration-300 text-white;
+    @apply bg-amber-400 rounded-md p-2 m-2 hover:bg-amber-500 transition-all duration-300;
   }
 }
+
+@custom-variant dark (&:where(.dark, .dark *));
