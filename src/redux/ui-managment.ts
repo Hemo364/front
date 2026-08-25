@@ -4,7 +4,7 @@ type ThemeType= "dark" | "light"
 
 type initialStateType ={sideBarShow:boolean,theme:ThemeType}
 
-const initialState:initialStateType={sideBarShow:false,theme:"light"}
+const initialState:initialStateType={sideBarShow:false,theme:localStorage.getItem("theme") as ThemeType || "light"}
 
 const uiManagerSlice = createSlice({
 
@@ -18,7 +18,9 @@ const uiManagerSlice = createSlice({
             state.sideBarShow=action.payload
         },
         ToggleTheme:(state:initialStateType)=>{
-            state.theme= state.theme=== "light"? "dark" : "light";
+            const newTheme=state.theme=== "light"? "dark" : "light";
+            localStorage.setItem("theme",newTheme)
+            state.theme= newTheme;
         }
     }
 })
