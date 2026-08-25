@@ -2,7 +2,7 @@ import httpService from "./_httpService";
 
 export const getTasksService = async (): Promise<taskType[]> => {
     const repons = await httpService<taskType[]>("/tasks", "GET");
-    if (repons.status === 200) return repons.data;
+    if (repons.status === 200 && Array.isArray(repons.data)) return repons.data;
     return [];
 }
 

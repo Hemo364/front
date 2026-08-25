@@ -1,7 +1,8 @@
 import axios, { type AxiosResponse } from "axios";
 import { errorToast, showToast } from "../utils/toastUtils";
 
-export const apiPath = import.meta.env.VITE_API_URL ?? "http://localhost:3001/";
+export const apiPath =
+    import.meta.env.VITE_API_URL || "https://my-json-server.typicode.com/Hemo364/Todo-list-backend/";
 
 
 axios.defaults.timeout=10000;
